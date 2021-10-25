@@ -21,7 +21,7 @@ export default function ServiceList() {
             {list
                 .items
                 .map((item) => (
-                    <li key={item.id}>{item.name} {item.price}
+                    <li key={item.id}>{item.name} <span style={{color: 'blue'}}>{item.price}</span>
                         <button onClick={() => handleEdit(item.id)}>EDIT</button>
                         <button onClick={() => handleDelete(item.id)}>DELETE</button>
                     </li>

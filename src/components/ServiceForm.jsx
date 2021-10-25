@@ -3,7 +3,8 @@ import {addService, editService, editServiceItem, validateServiceItem, resetServ
 
 export default function ServiceForm() {
     const {values} = useSelector((state) => state.serviceForm),
-          dispatch = useDispatch();
+          dispatch = useDispatch(),
+          price = Number(values.price);
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -18,12 +19,12 @@ export default function ServiceForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!values.name.length) {
+        if (values.name.lenght < 0) {
             dispatch(validateServiceItem("name"));
             return;
         }
 
-        const price = Number(values.price);
+        
         if (!price || price < 0) {
             dispatch(validateServiceItem("price"));
             return;
@@ -43,7 +44,7 @@ export default function ServiceForm() {
                 defaultValue={values.name}
                 onChange={handleChange}
                 type="text"/>
-            <input
+            <input         
                 name="price"
                 defaultValue={values.price}
                 type="text"
