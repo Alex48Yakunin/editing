@@ -2,7 +2,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {addService, editService, editServiceItem, validateServiceItem, resetServiceForm} from "../actions/actionCreators";
 
 export default function ServiceForm() {
-    const {values, validation} = useSelector((state) => state.serviceForm);
+    const {values} = useSelector((state) => state.serviceForm);
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
